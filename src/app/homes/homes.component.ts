@@ -8,6 +8,8 @@ import { DataService } from '../data.service';
 })
 export class HomesComponent implements OnInit {
 
+  homeTypeDropdown = false;
+
   homes$ = this.dataService.getHomes();
 
   constructor(private dataService: DataService) { }
