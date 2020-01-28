@@ -25,6 +25,7 @@
         </div>
     </div>
 
+    <app-home-search (applied)="searchApplied($event)"></app-home-search>
     <!-- home list -->
     <div *ngIf="(homes$ | async) as homes">
 

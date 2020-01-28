@@ -23,7 +23,8 @@ export class HomesComponent implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       const homeTypeFilters = params['home-type'] || [];
-      this.dataService.loadHomes(homeTypeFilters);
+      const searchString = params.search || '';
+      this.dataService.loadHomes(homeTypeFilters, searchString);
       this.currentHomesTypeFilters = homeTypeFilters;
     });
 
@@ -34,6 +35,12 @@ export class HomesComponent implements OnInit {
     this.homeTypeDropdownOpen = false;
     this.router.navigate(['homes'], {queryParams: {
       'home-type': $event
+    }})
+  }
+
+  searchApplied($event){
+    this.router.navigate(['homes'], {queryParams: {
+      'search': $event
     }})
   }
 

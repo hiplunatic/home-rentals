@@ -12,7 +12,7 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  loadHomes(homeTypeFilters) {
+  loadHomes(homeTypeFilters, searchString) {
     this.homes$.next([]);
     this.httpClient.get<any[]>('/assets/homes.json')
     .pipe(
@@ -23,6 +23,13 @@ export class DataService {
           return homes
         }
         return homes.filter(home => homeTypeFilters.includes(home.type))
+      }),
+      //search homes on client side
+      map(homes =>{
+        if(!searchString){
+          return homes
+        }
+        return homes.filter(home => home.title.includes(searchString))
       })
     )
     .subscribe(homes =>{
