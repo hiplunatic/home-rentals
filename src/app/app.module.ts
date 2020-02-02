@@ -7,12 +7,16 @@ import { HomesComponent } from './homes/homes.component';
 import { HomeTypeFilterComponent } from './home-type-filter/home-type-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeSearchComponent } from './home-search/home-search.component';
+import { DetailComponent } from './detail/detail.component';
+import { HomesWrapperComponent } from './homes-wrapper/homes-wrapper.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomesComponent,
     HomeTypeFilterComponent,
     HomeSearchComponent,
+    DetailComponent,
+    HomesWrapperComponent,
   ],
   imports: [
     BrowserModule,
